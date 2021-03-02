@@ -7,6 +7,16 @@ void main() => runApp(MaterialApp(
 class NewNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final AlertDialog dialog = AlertDialog(
+      content: Text('This page is still under development'),
+      actions: [
+        FlatButton(
+          textColor: Colors.blueAccent,
+          onPressed: () => Navigator.pop(context),
+          child: Text('OKAY'),
+        ),
+      ],
+    );
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -19,15 +29,16 @@ class NewNote extends StatelessWidget {
             ),
           ),
           actions: [
-            IconButton(
-                icon: Icon(
-                  Icons.mic,
-                  color: Colors.white,
-                ),
-                onPressed: () {}),
+            // IconButton(
+            //     icon: Icon(
+            //       Icons.mic,
+            //       color: Colors.white,
+            //     ),
+            //     onPressed: () {}),
             TextButton(
                 onPressed: () {
-                  //
+                  showDialog<void>(
+                      context: context, builder: (context) => dialog);
                 },
                 child: Text(
                   'SAVE',

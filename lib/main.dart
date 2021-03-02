@@ -52,6 +52,16 @@ class NoteApp extends StatelessWidget {
 
   Widget method1(BuildContext context, List<String> titles,
       List<String> maintext, String categorry) {
+    final AlertDialog dialog = AlertDialog(
+      content: Text('This page is still under development'),
+      actions: [
+        FlatButton(
+          textColor: Colors.blueAccent,
+          onPressed: () => Navigator.pop(context),
+          child: Text('OKAY'),
+        ),
+      ],
+    );
     return ConstrainedBox(
       constraints: BoxConstraints(
         minHeight: 100,
@@ -117,7 +127,9 @@ class NoteApp extends StatelessWidget {
                                   color: Colors.blueAccent,
                                 ),
                                 onPressed: () {
-                                  //
+                                  showDialog<void>(
+                                      context: context,
+                                      builder: (context) => dialog);
                                 },
                               ),
                               IconButton(
@@ -126,7 +138,9 @@ class NoteApp extends StatelessWidget {
                                   color: Colors.blueAccent,
                                 ),
                                 onPressed: () {
-                                  //
+                                  showDialog<void>(
+                                      context: context,
+                                      builder: (context) => dialog);
                                 },
                               ),
                               // LikeButton(),
@@ -400,6 +414,16 @@ class FullScreenDialogue extends StatelessWidget {
   final String titleD;
   @override
   Widget build(BuildContext context) {
+    final AlertDialog dialog = AlertDialog(
+      content: Text('This page is still under development'),
+      actions: [
+        FlatButton(
+          textColor: Colors.blueAccent,
+          onPressed: () => Navigator.pop(context),
+          child: Text('OKAY'),
+        ),
+      ],
+    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -416,7 +440,8 @@ class FullScreenDialogue extends StatelessWidget {
                 color: Colors.white,
               ),
               onPressed: () {
-                //
+                showDialog<void>(
+                    context: context, builder: (context) => dialog);
               }),
         ],
       ),

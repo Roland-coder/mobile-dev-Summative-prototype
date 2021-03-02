@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'newNote.dart';
 // import 'package:overflown/work.dart';
 // import 'package:like_button/like_button.dart';
 
@@ -27,6 +28,16 @@ class PersonalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AlertDialog dialog = AlertDialog(
+      content: Text('This page is still under development'),
+      actions: [
+        FlatButton(
+          textColor: Colors.blueAccent,
+          onPressed: () => Navigator.pop(context),
+          child: Text('OKAY'),
+        ),
+      ],
+    );
     return MaterialApp(
       title: 'Speech to text App',
       home: Scaffold(
@@ -121,7 +132,9 @@ class PersonalScreen extends StatelessWidget {
                                       color: Colors.blueAccent,
                                     ),
                                     onPressed: () {
-                                      //
+                                      showDialog<void>(
+                                          context: context,
+                                          builder: (context) => dialog);
                                     },
                                   ),
                                   IconButton(
@@ -130,7 +143,9 @@ class PersonalScreen extends StatelessWidget {
                                       color: Colors.blueAccent,
                                     ),
                                     onPressed: () {
-                                      //
+                                      showDialog<void>(
+                                          context: context,
+                                          builder: (context) => dialog);
                                     },
                                   ),
                                   // LikeButton(),
@@ -268,8 +283,10 @@ class PersonalScreen extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          // tooltip: 'Increment',
+          onPressed: () {
+            Navigator.push(context,
+                new MaterialPageRoute(builder: (context) => NewNote()));
+          },
           child: Icon(Icons.add),
         ),
       ),
@@ -283,6 +300,16 @@ class FullScreenDialogue extends StatelessWidget {
   final String tbody;
   @override
   Widget build(BuildContext context) {
+    final AlertDialog dialog = AlertDialog(
+      content: Text('This page is still under development'),
+      actions: [
+        FlatButton(
+          textColor: Colors.blueAccent,
+          onPressed: () => Navigator.pop(context),
+          child: Text('OKAY'),
+        ),
+      ],
+    );
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -299,7 +326,8 @@ class FullScreenDialogue extends StatelessWidget {
                 color: Colors.white,
               ),
               onPressed: () {
-                //
+                showDialog<void>(
+                    context: context, builder: (context) => dialog);
               }),
         ],
       ),
